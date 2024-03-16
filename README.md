@@ -1,0 +1,1 @@
+This script creates an indicator that changes the background color of candlesticks on a chart based on breakout conditions. It distinguishes between bullish and bearish candles and checks if they break the previous high or low. The background color changes accordingly to green for bullish breakouts, red for bearish breakouts, and remains black otherwise.
