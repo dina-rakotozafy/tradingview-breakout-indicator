@@ -1,0 +1,25 @@
+// This Pine Script™ code is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
+// © Dina_rakoto
+
+//@version=5
+indicator("Change Candle Background on Breakout", overlay=true)
+
+var color newColor = na
+
+// Determine if the current candle is bullish or bearish
+is_bullish = close > open
+is_bearish = close < open
+
+// Check if a bullish candle breaks the high or a bearish candle breaks the low
+bullish_breakout = high > high[1]
+bearish_breakout = low < low[1]
+
+// Change the color of the candlestick based on breakout
+newColor := is_bullish and bullish_breakout ? color.new(color.green, 90) : is_bearish and bearish_breakout ? color.new(color.red, 90) : color.new(color.black, 90)
+
+// Plot the original candlestick
+//plotcandle(open, high, low, close, color=color.black)
+
+// Overlay the color change above the actual candle color
+bgcolor(newColor)
+//barcolor(newColor)
